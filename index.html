@@ -1,0 +1,205 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test Cricket Legends | Mayank</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--gold:#ffc451;--bg:#04101a;--card:#071a27;--line:#203847}
+html{scroll-behavior:smooth}
+body{font-family:Arial,sans-serif;background:var(--bg);color:#f5f8fc}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit}
+header{position:sticky;top:0;z-index:10;background:#04101af2;
+border-bottom:1px solid var(--line);backdrop-filter:blur(14px)}
+nav{max-width:1250px;margin:auto;padding:17px 22px;display:flex;
+align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.logo{font-size:21px;font-weight:800;color:var(--gold)}
+.logo small{display:block;color:#d0dce5;font-size:11px;margin-top:5px}
+nav .links{display:flex;gap:20px;flex-wrap:wrap}
+nav .links a{font-size:13px;color:#dbe5ee;transition:.25s}
+nav .links a:hover{color:var(--gold)}
+.hero{min-height:450px;display:flex;align-items:center;
+background:linear-gradient(90deg,#04101a 4%,#04101acc 45%,#04101a22),
+url('https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&w=1800&q=85') center/cover}
+.hero-inner{max-width:1250px;width:100%;margin:auto;padding:65px 22px}
+.tag{color:var(--gold);letter-spacing:4px;font-size:12px;font-weight:bold}
+h1{font-size:clamp(42px,7vw,82px);line-height:1.02;margin:18px 0}
+.hero p{color:#d7e2eb;max-width:540px;line-height:1.8}
+.btn{display:inline-block;border:1px solid var(--gold);padding:13px 20px;
+border-radius:30px;background:var(--gold);color:#101820;font-weight:bold;
+margin:23px 8px 0 0;cursor:pointer;transition:.25s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 8px 30px #ffc45144}
+.btn.secondary{background:transparent;color:white;border-color:#607482}
+.container{max-width:1250px;margin:auto;padding:38px 22px}
+.section-head{display:flex;align-items:center;justify-content:space-between;
+gap:12px;flex-wrap:wrap;margin-bottom:22px}
+h2{font-size:25px;margin-bottom:8px}
+h2:before{content:"";display:inline-block;width:27px;height:3px;
+background:var(--gold);margin:0 12px 7px 0}
+.sub{font-size:13px;color:#9eb4c5}
+.search{width:min(100%,300px);padding:12px 15px;border-radius:25px;
+background:var(--card);border:1px solid var(--line);color:white;outline:none}
+.search:focus{border-color:var(--gold)}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
+.card{background:linear-gradient(145deg,#0b2130,#04101a);
+border:1px solid var(--line);border-radius:13px;overflow:hidden;
+transition:.3s;animation:fade .6s both}
+.card:hover{transform:translateY(-5px);border-color:#c99a47}
+.player-photo{height:190px;width:100%;object-fit:cover;display:block;
+filter:saturate(.8);background:#102433}
+.card-body{padding:17px}
+.card h3{font-size:17px;margin-bottom:8px}
+.country{color:var(--gold);font-size:12px;margin-bottom:12px}
+.stats{font-size:12px;color:#b9cad7;line-height:1.9}
+.pill{display:inline-block;border:1px solid #385063;border-radius:20px;
+padding:5px 9px;font-size:11px;color:#e7c887;margin-top:12px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.records{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.record{background:var(--card);border:1px solid var(--line);
+border-radius:12px;padding:20px 12px;text-align:center}
+.record .emoji{font-size:25px;color:var(--gold)}
+.record strong{display:block;color:var(--gold);font-size:26px;margin:12px 0}
+.record p{font-size:12px;color:#c4d1db;line-height:1.6}
+.list{list-style:none}
+.list li{padding:13px 15px;margin-bottom:8px;background:var(--card);
+border:1px solid var(--line);border-radius:9px;display:flex;
+justify-content:space-between;gap:12px;font-size:13px}
+.list span{color:var(--gold);text-align:right}
+.quote{text-align:center;padding:55px 20px;background:#081a26;
+border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.quote p{font-size:clamp(20px,3vw,31px);font-weight:bold;line-height:1.5}
+.quote span{color:var(--gold)}
+footer{text-align:center;padding:30px;color:#93a8b7;font-size:12px}
+footer b{color:var(--gold)}
+.empty{padding:25px;color:#9eb4c5;display:none}
+@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@media(min-width:900px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(min-width:1150px){.grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:650px){
+nav{justify-content:center}
+nav .links{justify-content:center;gap:13px}
+.hero{min-height:400px}
+.hero-inner{padding:50px 22px}
+.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.player-photo{height:140px}
+.card-body{padding:12px}
+.card h3{font-size:14px}
+.two{grid-template-columns:1fr}
+.container{padding:28px 14px}
+}
+@media(max-width:390px){.grid{grid-template-columns:1fr}.player-photo{height:190px}}
+</style>
+</head>
+<body>
+
+<header>
+<nav>
+<a href="#home" class="logo">♛ TEST CRICKET
+<small>Pure Cricket • Real Legends</small></a>
+<div class="links">
+<a href="#home">Home</a>
+<a href="#legends">Legends</a>
+<a href="#records">Records</a>
+<a href="#xi">All-Time XI</a>
+<a href="#series">Teams</a>
+</div>
+</nav>
+</header>
+
+<section class="hero" id="home">
+<div class="hero-inner">
+<div class="tag">THE ULTIMATE FORMAT</div>
+<h1>TEST<br>CRICKET.</h1>
+<p style="letter-spacing:3px;color:var(--gold);font-weight:bold">
+TIMELESS • TOUGH • LEGENDARY</p>
+<p style="margin-top:15px">Five days. Two innings. One ultimate battle.
+Discover the legends, unforgettable performances and records that
+made Test cricket the greatest test of skill and patience.</p>
+<a class="btn" href="#legends">Explore Legends →</a>
+<a class="btn secondary" href="#records">Discover Records ↗</a>
+</div>
+</section>
+
+<section class="container" id="legends">
+<div class="section-head">
+<div><h2>Test Cricket Legends</h2>
+<p class="sub">Great players. Unforgettable moments. Eternal legends.</p></div>
+<input id="search" class="search" placeholder="Search players or countries..."
+aria-label="Search players">
+</div>
+<div class="grid" id="players"></div>
+<p class="empty" id="empty">No players found. Try another name.</p>
+</section>
+
+<section class="container two" id="records">
+<div>
+<h2>Historic Records</h2>
+<p class="sub" style="margin-bottom:20px">Numbers that made history.</p>
+<div class="records">
+<div class="record"><div class="emoji">🏏</div>
+<p>Most Test Runs</p><strong>15,921</strong>
+<p>Sachin Tendulkar</p></div>
+<div class="record"><div class="emoji">💯</div>
+<p>Most Test Centuries</p><strong>51</strong>
+<p>Sachin Tendulkar</p></div>
+<div class="record"><div class="emoji">🎯</div>
+<p>Most Test Wickets</p><strong>800</strong>
+<p>Muttiah Muralitharan</p></div>
+<div class="record"><div class="emoji">🏆</div>
+<p>Highest Individual Score</p><strong>400*</strong>
+<p>Brian Lara</p></div>
+</div>
+<p class="sub" style="margin-top:12px">Men's Test cricket records. Statistics shown are historical career records, not live data.</p>
+</div>
+
+<div id="xi">
+<h2>All-Time Test XI</h2>
+<p class="sub" style="margin-bottom:20px">A fantasy XI celebrating cricket greatness.</p>
+<ul class="list">
+<li>1. Don Bradman <span>Australia</span></li>
+<li>2. Sunil Gavaskar <span>India</span></li>
+<li>3. Sachin Tendulkar <span>India</span></li>
+<li>4. Brian Lara <span>West Indies</span></li>
+<li>5. Jacques Kallis <span>South Africa</span></li>
+<li>6. Adam Gilchrist <span>Australia · WK</span></li>
+<li>7. Kapil Dev <span>India</span></li>
+<li>8. Shane Warne <span>Australia</span></li>
+<li>9. Wasim Akram <span>Pakistan</span></li>
+<li>10. James Anderson <span>England</span></li>
+<li>11. Muttiah Muralitharan <span>Sri Lanka</span></li>
+</ul>
+</div>
+</section>
+
+<section class="container" id="series">
+<h2>Great Test Cricket Nations</h2>
+<p class="sub" style="margin-bottom:20px">Rivalries that make the game unforgettable.</p>
+<div class="grid">
+<div class="card card-body"><h3>🇮🇳 India</h3>
+<p class="stats">Spin mastery, legendary batting and passionate crowds.</p>
+<span class="pill">The Men in Blue</span></div>
+<div class="card card-body"><h3>🇦🇺 Australia</h3>
+<p class="stats">A proud Test tradition, fierce competitors and iconic Ashes battles.</p>
+<span class="pill">Baggy Green</span></div>
+<div class="card card-body"><h3>🏴 England</h3>
+<p class="stats">Home of Test cricket and the historic Ashes rivalry.</p>
+<span class="pill">The Three Lions</span></div>
+<div class="card card-body"><h3>🇿🇦 South Africa</h3>
+<p class="stats">World-class fast bowling and resilient batting.</p>
+<span class="pill">The Proteas</span></div>
+<div class="card card-body"><h3>🇵🇰 Pakistan</h3>
+<p class="stats">Legendary pace bowlers and unpredictable brilliance.</p>
+<span class="pill">Shaheens</span></div>
+<div class="card card-body"><h3>🌴 West Indies</h3>
+<p class="stats">A golden era of dominant fast bowling and fearless batting.</p>
+<span class="pill">Caribbean Legends</span></div>
+</div>
+</section>
+
+<section class="quote">
+<p>"Test cricket is not just a game.<br>
+It's <span>a test of character.</span>"</p>
+<p style="font-size:13px;color:#9
